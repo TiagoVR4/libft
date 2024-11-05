@@ -22,10 +22,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t len)
 	c_dest = (unsigned char *)dest;
 	c_src = (unsigned char *)src;
 	i = 0;
-	if (c_src == NULL)
-	{
+	if (c_src == NULL && c_dest == NULL)
 		return (NULL);
-	}
 	while (len > i)
 	{
 		c_dest[i] = c_src[i];
@@ -37,7 +35,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t len)
 int	main()
 {
 	char	src[] = "alguma coisa";
-	char	dest[50];
+	char	dest[50] = "coisas";
 	ft_memcpy(dest, src, 20);
 
 	printf ("%s\n", dest);

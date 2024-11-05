@@ -17,37 +17,31 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 {
 	char	*c_src;
 	char	*c_dest;
-	size_t	i;
 
 	c_dest = (char *)dest;
 	c_src = (char *)src;
-	i = 0;
+	if (c_dest == NULL && c_src == NULL)
+		return (NULL);
 	if (c_dest > c_src)
 	{
 		while (len > 0)
 		{
+			c_dest[len - 1] = c_src[len - 1];
 			len--;
-			c_dest[len] = c_src[len];
 		}
 	}
-	else
-	{
-		while (i < len)
-		{
-			c_dest[i] = c_src[i];
-			i++;
-		}
-	}
+	else if (c_src > c_dest)
+		ft_memcpy(c_dest, c_src, len);
 	return (dest);
 }
-/*
+/* 
 int main(void)
 {
-    char src[] = "alguma coisa";
-    char dest[50];
-    ft_memmove(dest, src, ft_strlen(src) + 1);
-
-    printf ("%s\n", dest);
+    char src[20] = "alguma coisa";
+    char dest[1] = "b";
+    char dest1[1] = "b";
+    ft_memmove(dest, src, ft_strlen(src));
+    
+	printf ("ft_ %s\n", dest);
     return (0);
-}
-*/
+} */

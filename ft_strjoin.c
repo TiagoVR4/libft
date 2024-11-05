@@ -15,18 +15,19 @@
 //Junta uma str com outra.
 char	*ft_strcat(char *dest, const char *src)
 {
-	size_t	i;
+	size_t	dest_len;
+	size_t	src_len;
 
-	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (*src != '\0')
+	dest_len = 0;
+	src_len = 0;
+	while (dest[dest_len] != '\0')
+		dest_len++;
+	while (src[src_len] != '\0')
 	{
-		dest[i] = *src;
-		i++;
-		src++;
+		dest[dest_len + src_len] = src[src_len];
+		src_len++;
 	}
-	dest[i] = '\0';
+	dest[dest_len + src_len] = '\0';
 	return (dest);
 }
 
@@ -40,8 +41,9 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	s3 = malloc(sizeof(char) * (full_len + 1));
 	if (!s3)
 		return (NULL);
-	ft_strcat(s3, (char *)s1);
-	ft_strcat(s3, (char *)s2);
+	s3[0] = '\0';
+	ft_strcat(s3, s1);
+	ft_strcat(s3, s2);
 	return (s3);
 }
 /* 

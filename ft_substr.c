@@ -21,10 +21,12 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 
 	i = 0;
 	s_len = ft_strlen(s);
+	if ((s_len <= start))
+		return (ft_strdup(""));
+	if (start + len > s_len)
+		len = s_len - start;
 	sub = (char *)malloc((len + 1) * sizeof(char));
 	if (!sub)
-		return (NULL);
-	if ((s_len <= start) && (s_len < len))
 		return (NULL);
 	while ((i < len) && (s[start + i] != '\0'))
 	{

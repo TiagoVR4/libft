@@ -14,9 +14,11 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *str;
+	t_list	*str;
 
 	str = (t_list *)malloc(sizeof(t_list));
+	if (!str)
+		return (NULL);
 	str->content = content;
 	str->next = NULL;
 	return (str);

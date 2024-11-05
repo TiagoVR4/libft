@@ -18,7 +18,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size)
 	size_t	src_len;
 	size_t	i;
 
-	src_len = ft_strlen((char *)src);
+	src_len = ft_strlen(src);
 	if (dest_size == 0)
 		return (src_len);
 	i = 0;
@@ -33,9 +33,8 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size)
 /* 
 int	main()
 {
-	char	dest[3];
-	char	*src = "alguma coisa";
-
+	char	dest[20];
+	char	*src = "";
 	size_t len = ft_strlcpy(dest, src, 4);
 
 	printf ("%zu\n", len);

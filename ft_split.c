@@ -47,7 +47,9 @@ char	**ft_split(const char *s, char c)
 	i = 0;
 	start = 0;
 	index = 0;
-	result = ft_calloc((ft_word_counter((char *)s, c) + 1), sizeof(char *));
+	if (!s)
+		return (NULL);
+	result = malloc((ft_word_counter((char *)s, c) + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
 	while (s[i] != '\0')
@@ -63,6 +65,7 @@ char	**ft_split(const char *s, char c)
 	}
 	if (start < i)
 		result[index++] = ft_substr(s, start, i - start);
+	result[index] = NULL;
 	return (result);
 }
 /* 

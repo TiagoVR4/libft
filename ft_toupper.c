@@ -13,7 +13,7 @@
 #include "libft.h"
 
 //Converte uma letra lower-case para UPPER-case.
-int	ft_toupper(char c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 	{
