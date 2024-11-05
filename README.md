@@ -8,7 +8,7 @@ Libft is my first project for the 42 course. The project requires recreating som
 - [Functionalities](#functionalities)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Compilation](#compilation)
+- [Compilation](#Compilation and Tests)
 
 ## Introduction
 
@@ -82,11 +82,11 @@ Libft é o meu primeiro Projeto da 42. O projeto requer recriar algumas funçõe
 
 ## Sumário
 
--[Introdução](#Introdução)
--[Funcionalidades](#Funcionalidades)
--[Instalação](#Instalação)
--[Uso](#Uso)
--[Compilação](#Compilação)
+- [Introdução](#Introdução)
+- [Funcionalidades](#Funcionalidades)
+- [Instalação](#Instalação)
+- [Uso](#Uso)
+- [Compilação](#Compilação e testes)
 
 
 ## Introdução
