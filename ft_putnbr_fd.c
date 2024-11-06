@@ -15,12 +15,17 @@
 //Escreve um int em um descritor de arquivo.
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
-	size_t	len;
+	long	nb;
 
-	str = ft_itoa(n);
-	len = ft_strlen(str);
-	write(fd, str, len);
+	nb = n;
+	if (nb < 0)
+	{
+		nb = nb * (-1);
+		ft_putchar_fd('-', fd);
+	}
+	if (nb >= 10)
+		ft_putnbr_fd(nb / 10, fd);
+	ft_putchar_fd(nb % 10 + 48, fd);
 }
 /* 
 int	main()
