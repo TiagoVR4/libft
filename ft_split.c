@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:06:23 by tiagalex          #+#    #+#             */
-/*   Updated: 2024/11/07 11:05:19 by tiagalex         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:10:52 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	**ft_split(const char *s, char c)
 	ft_fill_words((char *)s, c, result);
 	return (result);
 }
-
+/* 
 void	ft_free_split(char **split)
 {
 	int	i;
@@ -84,7 +84,7 @@ void	ft_free_split(char **split)
 	}
 	free(split);
 }
-/* 
+
 int	main()
 {
 	char	*s = "ela disse que nao tenho personalidade juridica";
