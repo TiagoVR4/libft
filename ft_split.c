@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:06:23 by tiagalex          #+#    #+#             */
-/*   Updated: 2024/11/04 11:46:56 by tiagalex         ###   ########.fr       */
+/*   Updated: 2024/11/07 11:05:19 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ size_t	ft_word_counter(char *s, char c)
 	return (count);
 }
 
-void	ft_make_array(char *s, char c, char **result)
+void	ft_fill_words(char *s, char c, char **result)
 {
 	size_t	i;
 	size_t	start;
@@ -68,8 +68,21 @@ char	**ft_split(const char *s, char c)
 	result = malloc((ft_word_counter((char *)s, c) + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
-	ft_make_array((char *)s, c, result);
+	ft_fill_words((char *)s, c, result);
 	return (result);
+}
+
+void	ft_free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i] != NULL)
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }
 /* 
 int	main()
@@ -84,6 +97,6 @@ int	main()
 		printf("%s\n", result[i]);
 		i++;
 	}
-	free(result);
+	ft_free_split(result);
 	return (0);
 } */
