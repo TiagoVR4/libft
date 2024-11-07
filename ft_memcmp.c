@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 13:50:39 by tiagalex          #+#    #+#             */
-/*   Updated: 2024/11/04 11:36:19 by tiagalex         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:35:40 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	if (i == n)
 		return (0);
-	return (c_s1[i] - c_s2[i]);
 }
 /* 
 int	main()
