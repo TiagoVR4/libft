@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 17:25:15 by tiagalex          #+#    #+#             */
-/*   Updated: 2024/11/08 13:04:48 by tiagalex         ###   ########.fr       */
+/*   Created: 2024/11/08 11:42:26 by tiagalex          #+#    #+#             */
+/*   Updated: 2024/11/08 12:18:19 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//cria o primeiro node da lista
-t_list	*ft_lstnew(void *content)
+//conta o num de listas
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*str;
+	int	i;
 
-	str = (t_list *)malloc(sizeof(t_list));
-	if (!str)
-		return (NULL);
-	str->content = content;
-	str->next = NULL;
-	return (str);
+	i = 0;
+	while (lst != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }
 /* 
 int	main()
 {
-	char *str = "UVA";
-	t_list *algo = ft_lstnew((void *)str);
-	printf ("%s", (char *)algo->content);
+	t_list *str = ft_lstnew("banana");
+	ft_lstadd_front(&str,ft_lstnew("manga"));
+	ft_lstadd_front(&str,ft_lstnew("ananas"));
+	printf("%d", ft_lstsize(str));
+
 	return (0);
 } */

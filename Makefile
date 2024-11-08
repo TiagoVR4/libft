@@ -11,7 +11,7 @@ SRC	=  ft_bzero.c ft_isalnum.c ft_isalpha.c \
 	ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	ft_split.c ft_memcpy.c ft_strlcpy.c ft_strrchr.c
 
-SRC_BONUS = ft_lstnew.c ft_lstadd_front.c
+SRC_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c
 
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
