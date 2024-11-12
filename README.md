@@ -54,13 +54,13 @@ The goal of Libft is to create a personal library with some functions from the C
 
 ## Bonus Functions
 
-`ft_lstnew.c` Creates a new list element.
-`ft_lstadd_front.c` Adds an element to the beginning of a list.
-`ft_lstadd_back.c` Adds an element to the end of a list.
-`ft_lstdelone.c` Deletes a single element from a list.
-`ft_lstclear.c` Clears the entire list.
-`ft_lstiter.c` Applies a function to each element of a list.
-`ft_lstmap.c` Creates a new list by applying a function to each element of an existing list.
+- `ft_lstnew.c` Creates a new list element.
+- `ft_lstadd_front.c` Adds an element to the beginning of a list.
+- `ft_lstadd_back.c` Adds an element to the end of a list.
+- `ft_lstdelone.c` Deletes a single element from a list.
+- `ft_lstclear.c` Clears the entire list.
+- `ft_lstiter.c` Applies a function to each element of a list.
+- `ft_lstmap.c` Creates a new list by applying a function to each element of an existing list.
 
 ## Installation
 
@@ -108,50 +108,50 @@ O objectivo do Libft é criar uma biblioteca pessoal com algumas funções da bi
 
 ## Funções
 
-`ft_atoi.c` Converte uma str em um int.
- `ft_bzero.c` Preenche uma área de memória com '\0'.
-`ft_calloc.c` aloca a memória para um array e inicializa todos os bytes por '\0'.
-`ft_isalnum.c` Verifica se um caractere é alfanumérico.
-`ft_isalpha.c` Verifica se um caractere é alfabético.
-`ft_isascii.c` Verifica se um caractere faz parte do ASCII table.
-`ft_isdigit.c` Verifica se um caractere é um dígito.
-`ft_isprint.c` Verifica se um caractere é printable.
-`ft_itoa.c` Converte int para *str.
-`ft_memchr.c` Procura o character numa string de bytes.
-`ft_memcmp.c` Compara 2 strings de bytes.
-`ft_memcpy.c` Copia um bloco de memória.
-`ft_memmove.c` Move 1 str bloco de memória para outra str.
-`ft_memset.c` Preenche uma str c/ um valor específico.
-`ft_putchar_fd.c` Escreve um único char no descritor de arquivo (fd).
-`ft_putendl_fd.c` Escreve uma str com uma quebra de linha no descritor de arquivo (fd).
-`ft_putnbr_fd.c` Escreve um int em um descritor de arquivo.
-`ft_putstr_fd.c` Escreve uma str no descritor de arquivo (fd).
-`ft_split.c` Divide uma str em uma array de str's c/base de char escolhido pelo utilizador.
-`ft_strchr.c` Procura na str o char que queres e recebes o pointer do resto.
-`ft_strdup.c` Cria uma cópia da str.
-`ft_striteri.c` Modifica a str original aplicando uma função a cada caractere.
-`ft_strjoin.c` Concatena uma str com outra numa nova str.
-`ft_strlcat.c` Concatena duas str's com um limitador no Buffer.
-`ft_strlcpy.c` Cópia uma str para outra com um limitador no Buffer.
-`ft_strlen.c` Conta o tamanho da str.
-`ft_strmapi.c` Cria uma nova str aplicando uma função a cada caractere.
-`ft_strncmp.c` Compara duas string até um tamanho específico.
-`ft_strnstr.c` Procura uma str dentro de outra e copia até um tamanho específico.
-`ft_strrchr.c` Procura a última chr e retorna o pointer do resto.
-`ft_strtrim.c` Remove todos chr’s do início e fim da str e retorna uma str limpa.
-`ft_substr.c` Cria uma sub str a partir do start até ao limite desejado.
-`ft_tolower.c` Converte uma letra UPPER-case para lower-case.
-`ft_toupper.c` Converte uma letra lower-case para UPPER-case.
+- `ft_atoi.c` Converte uma str em um int.
+- `ft_bzero.c` Preenche uma área de memória com '\0'.
+- `ft_calloc.c` aloca a memória para um array e inicializa todos os bytes por '\0'.
+- `ft_isalnum.c` Verifica se um caractere é alfanumérico.
+- `ft_isalpha.c` Verifica se um caractere é alfabético.
+- `ft_isascii.c` Verifica se um caractere faz parte do ASCII table.
+- `ft_isdigit.c` Verifica se um caractere é um dígito.
+- `ft_isprint.c` Verifica se um caractere é printable.
+- `ft_itoa.c` Converte int para *str.
+- `ft_memchr.c` Procura o character numa string de bytes.
+- `ft_memcmp.c` Compara 2 strings de bytes.
+- `ft_memcpy.c` Copia um bloco de memória.
+- `ft_memmove.c` Move 1 str bloco de memória para outra str.
+- `ft_memset.c` Preenche uma str c/ um valor específico.
+- `ft_putchar_fd.c` Escreve um único char no descritor de arquivo (fd).
+- `ft_putendl_fd.c` Escreve uma str com uma quebra de linha no descritor de arquivo (fd).
+- `ft_putnbr_fd.c` Escreve um int em um descritor de arquivo.
+- `ft_putstr_fd.c` Escreve uma str no descritor de arquivo (fd).
+- `ft_split.c` Divide uma str em uma array de str's c/base de char escolhido pelo utilizador.
+- `ft_strchr.c` Procura na str o char que queres e recebes o pointer do resto.
+- `ft_strdup.c` Cria uma cópia da str.
+- `ft_striteri.c` Modifica a str original aplicando uma função a cada caractere.
+- `ft_strjoin.c` Concatena uma str com outra numa nova str.
+- `ft_strlcat.c` Concatena duas str's com um limitador no Buffer.
+- `ft_strlcpy.c` Cópia uma str para outra com um limitador no Buffer.
+- `ft_strlen.c` Conta o tamanho da str.
+- `ft_strmapi.c` Cria uma nova str aplicando uma função a cada caractere.
+- `ft_strncmp.c` Compara duas string até um tamanho específico.
+- `ft_strnstr.c` Procura uma str dentro de outra e copia até um tamanho específico.
+- `ft_strrchr.c` Procura a última chr e retorna o pointer do resto.
+- `ft_strtrim.c` Remove todos chr’s do início e fim da str e retorna uma str limpa.
+- `ft_substr.c` Cria uma sub str a partir do start até ao limite desejado.
+- `ft_tolower.c` Converte uma letra UPPER-case para lower-case.
+- `ft_toupper.c` Converte uma letra lower-case para UPPER-case.
 
 ## Funções Bônus
 
-`ft_lstnew.c` Cria um novo elemento de lista.
-`ft_lstadd_front.c` Adiciona um elemento ao início de uma lista.
-`ft_lstadd_back.c` Adiciona um elemento ao final de uma lista.
-`ft_lstdelone.c` Remove um único elemento de uma lista.
-`ft_lstclear.c` Limpa toda a lista.
-`ft_lstiter.c` Aplica uma função a cada elemento da lista.
-`ft_lstmap.c` Cria uma nova lista aplicando uma função a cada elemento de uma lista existente.
+- `ft_lstnew.c` Cria um novo elemento de lista.
+- `ft_lstadd_front.c` Adiciona um elemento ao início de uma lista.
+- `ft_lstadd_back.c` Adiciona um elemento ao final de uma lista.
+- `ft_lstdelone.c` Remove um único elemento de uma lista.
+- `ft_lstclear.c` Limpa toda a lista.
+- `ft_lstiter.c` Aplica uma função a cada elemento da lista.
+- `ft_lstmap.c` Cria uma nova lista aplicando uma função a cada elemento de uma lista existente.
 
 
 ## Instalação
