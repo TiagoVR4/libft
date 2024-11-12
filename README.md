@@ -52,7 +52,7 @@ The goal of Libft is to create a personal library with some functions from the C
 - `ft_tolower.c` Converts an uppercase letter to lowercase.
 - `ft_toupper.c` Converts a lowercase letter to uppercase.
 
-## Bonus Functions
+## Bonus_Functions
 
 - `ft_lstnew.c` Creates a new list element.
 - `ft_lstadd_front.c` Adds an element to the beginning of a list.
@@ -143,7 +143,7 @@ O objectivo do Libft é criar uma biblioteca pessoal com algumas funções da bi
 - `ft_tolower.c` Converte uma letra UPPER-case para lower-case.
 - `ft_toupper.c` Converte uma letra lower-case para UPPER-case.
 
-## Funções Bônus
+## Funções_Bônus
 
 - `ft_lstnew.c` Cria um novo elemento de lista.
 - `ft_lstadd_front.c` Adiciona um elemento ao início de uma lista.
