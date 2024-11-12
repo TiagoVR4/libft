@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:34:28 by tiagalex          #+#    #+#             */
-/*   Updated: 2024/11/12 11:54:27 by tiagalex         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:26:37 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 /* 
 void	del(void *lst)
 {
-	(void)lst;
+	free(lst);
 }
 
 int	main()
