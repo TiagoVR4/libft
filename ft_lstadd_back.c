@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:05:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2024/11/08 13:31:00 by tiagalex         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:13:09 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //adiciona a lista a tras da nova str
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *content;
+	t_list	*content;
 
 	if (!lst || !new)
 		return ;

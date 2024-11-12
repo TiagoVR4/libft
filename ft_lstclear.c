@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 13:34:28 by tiagalex          #+#    #+#             */
-/*   Updated: 2024/11/12 11:54:27 by tiagalex         ###   ########.fr       */
+/*   Created: 2024/11/11 16:29:31 by tiagalex          #+#    #+#             */
+/*   Updated: 2024/11/12 14:13:21 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//liberta um node da lista e liberta a sua memoria.
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+//apaga toda a struct
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	t_list	*current;
+	t_list	*clone;
+
+	current = *lst;
 	if (!lst || !del)
 		return ;
-	(*del)(lst->content);
-	free(lst);
+	while (current != NULL)
+	{
+		clone = current->next;
+		(*del)(current->content);
+		free(current);
+		current = clone;
+	}
+	*lst = NULL;
 }
 /* 
 void	del(void *lst)
 {
-	(void)lst;
+	free(lst);
 }
 
 int	main()
@@ -33,21 +43,17 @@ int	main()
 	ft_lstadd_back(&lst,ft_lstnew(ft_strdup("ananas\n")));
 	
 	t_list	*temp = lst;
-	while (temp->next != NULL)
+	t_list	*temp1 = lst;
+	while (temp != NULL)
 	{
 		printf ("temp %s", (char *)temp->content);
 		temp = temp->next;
 		
 	}
-	printf ("temp %s", (char *)temp->content);
-	ft_lstdelone(temp, &del);
-	while (lst != NULL)
+	ft_lstclear(&lst, &del);
+	if (lst == NULL)
 	{
-		printf ("lst %s", (char *)lst->content);
-		lst = lst->next;
+		printf ("success!\n");
 	}
-	printf ("lst %s", (char *)lst->content);
-	free(lst);
-	free(temp);
 	return (0);
 } */
