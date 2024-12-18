@@ -158,10 +158,11 @@ O objectivo do Libft é criar uma biblioteca pessoal com algumas funções da bi
 
 Para compilar o biblioteca, clone o repositório e executa o comando make :
 
-bash
+```bash
 git clone 'libft'
 cd libft
 make
+```
 
 
 ## Uso
