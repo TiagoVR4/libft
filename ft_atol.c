@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 16:31:02 by coder             #+#    #+#             */
-/*   Updated: 2025/02/26 16:37:09 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/26 12:10:09 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 long	ft_atol(const char *str)
 {
 	int		i;
-	long		r;
+	long	r;
 	int		signal;
 	char	*s;
 
