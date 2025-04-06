@@ -5,7 +5,7 @@ GET_NEXT_LINE_SRC = $(GET_NEXT_LINE_PATH)/get_next_line.c \
 					$(GET_NEXT_LINE_PATH)/get_next_line_utils.c \
 					$(GET_NEXT_LINE_PATH)/get_next_line_bonus.c \
 					$(GET_NEXT_LINE_PATH)/get_next_line_utils_bonus.c
-GET_NEXT_LINE_ARC = $(GET_NEXT_LINE_PATH)/$(GET_NEXT_LINE_SRC:.c=.o)
+GET_NEXT_LINE_ARC = $(GET_NEXT_LINE_SRC:.c=.o)
 
 FT_PRINTF_PATH = ft_printf
 FT_PRINTF_ARC = $(FT_PRINTF_PATH)/libftprintf.a
@@ -28,14 +28,31 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 CC	= cc
 CFLAGS = -Wall -Wextra -Werror -g
 
-all: $(NAME)
+all: deps $(NAME)
 
-$(NAME): $(OBJ) $(FT_PRINTF_ARC)
-	@cd $(GET_NEXT_LINE_PATH) && ar -rcs ../$(NAME) $(GET_NEXT_LINE_OBJ)
-	@ar -rcs $(NAME) $(OBJ)
-	@ar -x $(FT_PRINTF_ARC)
-	@ar -rcs $(NAME) *.o
-	@rm -f *.o
+deps: get_gnl get_ft_printf
+	@echo "[$(GRN)Nothing to be done!$(D)]"
+
+get_ft_printf:
+	@if [ -d "$(FT_PRINTF_PATH)" ]; then \
+		echo "[ft_printf] folder found 🖔"; \
+	else \
+		echo "Getting ft_printf"; \
+		git clone git@github.com:TiagoVR4/ft_printf.git; \
+		echo "Done downloading ft_printf"; \
+	fi
+
+get_gnl:
+	@if [ -d "$(GET_NEXT_LINE_PATH)" ]; then \
+		echo "[Get_Next_Line] folder found 🖔"; \
+	else \
+		echo "Getting Get_Next_Line"; \
+		git clone git@github.com:TiagoVR4/Get_Next_Line.git; \
+		echo "Done downloading Get_Next_Line"; \
+	fi
+
+$(NAME): $(LIBFT_ARC) $(GET_NEXT_LINE_ARC) $(OBJ)
+	@ar -rcs $(OBJ) $(FT_PRINTF_ARC) $(GET_NEXT_LINE_ARC) -o $(NAME)
 	@echo "[libft.a created successfully!]"
 
 bonus: $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_ARC) $(FT_PRINTF_ARC)
@@ -46,28 +63,12 @@ bonus: $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_ARC) $(FT_PRINTF_ARC)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(FT_PRINTF_ARC):
-	@if [ -d "$(FT_PRINTF_PATH)" ]; then \
-		echo "[ft_printf] folder found 🖔"; \
-	else \
-		echo "Getting ft_printf"; \
-		git clone https://github.com/TiagoVR4/ft_printf.git; \
-		echo "Done downloading ft_printf"; \
-	fi
-	@$(MAKE) -C $(FT_PRINTF_PATH)
+	@$(MAKE) $(FT_PRINTF_PATH) all
 
-$(GET_NEXT_LINE_ARC): $(GET_NEXT_LINE_PATH)
-	@echo "Compiling get_next_line..."
-	@cd $(GET_NEXT_LINE_PATH) && $(CC) $(CFLAGS) -c $(GET_NEXT_LINE_SRC)
-	@echo "get_next_line compiled!"
 
-$(GET_NEXT_LINE_PATH):
-	@if [ -d "$(GET_NEXT_LINE_PATH)" ]; then \
-		echo "[get_next_line] folder found 🖔"; \
-	else \
-		echo "Getting get_next_line"; \
-		git clone https://github.com/TiagoVR4/Get_Next_Line.git get_next_line; \
-		echo "Done downloading get_next_line"; \
-	fi
+#------------------------------------------------------------------------------#
+#								CLEANING RULES								   #
+#------------------------------------------------------------------------------#
 
 clean:
 	@rm -f $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_ARC)
