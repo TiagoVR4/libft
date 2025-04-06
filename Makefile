@@ -5,7 +5,7 @@ GET_NEXT_LINE_SRC = $(GET_NEXT_LINE_PATH)/get_next_line.c \
 					$(GET_NEXT_LINE_PATH)/get_next_line_utils.c \
 					$(GET_NEXT_LINE_PATH)/get_next_line_bonus.c \
 					$(GET_NEXT_LINE_PATH)/get_next_line_utils_bonus.c
-GET_NEXT_LINE_ARC = $(GET_NEXT_LINE_SRC:.c=.o)
+GET_NEXT_LINE_ARC = $(GET_NEXT_LINE_PATH)/$(GET_NEXT_LINE_SRC:.c=.o)
 
 FT_PRINTF_PATH = ft_printf
 FT_PRINTF_ARC = $(FT_PRINTF_PATH)/libftprintf.a
@@ -30,8 +30,12 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(GET_NEXT_LINE_ARC) $(FT_PRINTF_ARC)
-	@ar -rcs $(NAME) $(OBJ) $(GET_NEXT_LINE_ARC) $(FT_PRINTF_ARC)
+$(NAME): $(OBJ) $(FT_PRINTF_ARC)
+	@cd $(GET_NEXT_LINE_PATH) && ar -rcs ../$(NAME) $(GET_NEXT_LINE_OBJ)
+	@ar -rcs $(NAME) $(OBJ)
+	@ar -x $(FT_PRINTF_ARC)
+	@ar -rcs $(NAME) *.o
+	@rm -f *.o
 	@echo "[libft.a created successfully!]"
 
 bonus: $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_ARC) $(FT_PRINTF_ARC)
@@ -53,9 +57,7 @@ $(FT_PRINTF_ARC):
 
 $(GET_NEXT_LINE_ARC): $(GET_NEXT_LINE_PATH)
 	@echo "Compiling get_next_line..."
-	@for file in $(GET_NEXT_LINE_SRC); do \
-		$(CC) $(CFLAGS) -c $$file -o $${file:.c=.o}; \
-	done
+	@cd $(GET_NEXT_LINE_PATH) && $(CC) $(CFLAGS) -c $(GET_NEXT_LINE_SRC)
 	@echo "get_next_line compiled!"
 
 $(GET_NEXT_LINE_PATH):
