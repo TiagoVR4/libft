@@ -51,15 +51,21 @@ $(FT_PRINTF_ARC):
 	fi
 	@$(MAKE) -C $(FT_PRINTF_PATH)
 
+$(GET_NEXT_LINE_ARC): $(GET_NEXT_LINE_PATH)
+	@echo "Compiling get_next_line..."
+	@for file in $(GET_NEXT_LINE_SRC); do \
+		$(CC) $(CFLAGS) -c $$file -o $${file:.c=.o}; \
+	done
+	@echo "get_next_line compiled!"
+
 $(GET_NEXT_LINE_PATH):
 	@if [ -d "$(GET_NEXT_LINE_PATH)" ]; then \
 		echo "[get_next_line] folder found 🖔"; \
 	else \
 		echo "Getting get_next_line"; \
-		git clone https://github.com/TiagoVR4/Get_Next_Line.git; \
+		git clone https://github.com/TiagoVR4/Get_Next_Line.git get_next_line; \
 		echo "Done downloading get_next_line"; \
 	fi
-	@$(CC) $(CFLAGS) $(GET_NEXT_LINE_SRC) -C $(GET_NEXT_LINE_PATH)
 
 clean:
 	@rm -f $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_ARC)
