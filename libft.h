@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:18:50 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/28 14:54:55 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:24:11 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include "ft_printf/ft_printf.h"
+# include "get_next_line/get_next_line.h"
 
 // Functions
 void	*ft_memcpy(void *dest, const void *src, size_t len);
