@@ -12,11 +12,8 @@ NAME = libft.a
 
 # Get Next Line paths and source files
 GET_NEXT_LINE_PATH = get_next_line
-GET_NEXT_LINE_SRC = $(GET_NEXT_LINE_PATH)/get_next_line.c \
-					$(GET_NEXT_LINE_PATH)/get_next_line_utils.c \
-					$(GET_NEXT_LINE_PATH)/get_next_line_bonus.c \
-					$(GET_NEXT_LINE_PATH)/get_next_line_utils_bonus.c
-GET_NEXT_LINE_ARC = $(GET_NEXT_LINE_SRC:.c=.o)
+GET_NEXT_LINE_SRC = $(wildcard $(GET_NEXT_LINE_PATH)/*.c)
+GET_NEXT_LINE_OBJ = $(GET_NEXT_LINE_SRC:.c=.o)
 
 # ft_printf paths and archive file
 FT_PRINTF_PATH = ft_printf
@@ -72,15 +69,15 @@ get_gnl:
 	fi
 
 # Create the main library archive - combining libft, get_next_line and ft_printf
-$(NAME): $(LIBFT_ARC) $(GET_NEXT_LINE_ARC) $(OBJ)
+$(NAME): $(GET_NEXT_LINE_OBJ) $(OBJ) $(FT_PRINTF_ARC)
 	@echo "$(CYN)Creating libft archive...$(D)"
-	@ar -rcs $(OBJ) $(FT_PRINTF_ARC) $(GET_NEXT_LINE_ARC) -o $(NAME)
+	@ar -rcs $(NAME) $(OBJ) $(FT_PRINTF_ARC) $(GET_NEXT_LINE_OBJ)
 	@echo "[$(GRN)libft.a created successfully!$(D)]"
 
 # Include bonus functions in the library
-bonus: $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_ARC) $(FT_PRINTF_ARC)
+bonus: $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_OBJ) $(FT_PRINTF_ARC)
 	@echo "$(CYN)Creating libft archive with bonus...$(D)"
-	@ar -rcs $(NAME) $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_ARC) $(FT_PRINTF_ARC)
+	@ar -rcs $(NAME) $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_OBJ) $(FT_PRINTF_ARC)
 	@echo "[$(GRN)libft.a with bonus created successfully!$(D)]"
 
 # Generic rule for compiling .c to .o
@@ -89,7 +86,15 @@ bonus: $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_ARC) $(FT_PRINTF_ARC)
 
 # Compile ft_printf
 $(FT_PRINTF_ARC):
-	@$(MAKE) $(FT_PRINTF_PATH) all
+	@echo "$(CYN)Compiling ft_printf...$(D)"
+	@$(MAKE) -C $(FT_PRINTF_PATH) all
+	@echo "[$(GRN)ft_printf compiled successfully!$(D)]"
+
+# Compile Get_Next_Line
+$(GET_NEXT_LINE_PATH)/%.o: $(GET_NEXT_LINE_PATH)/%.c
+	@echo "$(CYN)Compiling $<...$(D)"
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "[$(GRN)$< compiled successfully!$(D)]"
 
 
 #------------------------------------------------------------------------------#
@@ -98,12 +103,14 @@ $(FT_PRINTF_ARC):
 
 # Remove all object files
 clean:
-	@rm -f $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_ARC)
+	@rm -f $(OBJ) $(OBJ_BONUS) $(GET_NEXT_LINE_OBJ)
+	@$(MAKE) -C $(FT_PRINTF_PATH) clean
 	@echo "[$(GRN)All object files cleaned!$(D)]"
 
 # Remove all generated files including the library
 fclean: clean
 	@rm -f $(NAME)
+	@$(MAKE) -C $(FT_PRINTF_PATH) fclean
 	@echo "[$(GRN)All files cleaned!$(D)]"
 
 # Rebuild everything from scratch
