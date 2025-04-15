@@ -53,7 +53,7 @@ get_ft_printf:
 	@if [ -d "$(FT_PRINTF_PATH)" ]; then \
 		echo "[$(GRN)ft_printf$(D)] folder found 🖔"; \
 	else \
-		echo "Getting ft_printf"; \
+		echo "Getting $(YLW)ft_printf$(D)"; \
 		git clone git@github.com:TiagoVR4/ft_printf.git; \
 		echo "$(GRN)Done downloading ft_printf$(D)"; \
 	fi
